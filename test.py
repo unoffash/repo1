@@ -2,9 +2,9 @@ import os
 import snowflake.connector
 
 # Retrieve Snowflake connection details from environment variables
-snowflake_account = os.getenv('secrets.SNOWFLAKE_ACCOUNT')
-snowflake_user = os.getenv('secrets.SNOWFLAKE_USER')
-snowflake_password = os.getenv('secrets.SNOWFLAKE_PASSWORD')
+snowflake_account = 'ovtgwmt-ng13131'
+snowflake_user = 'ASHWATHP'
+snowflake_password = 'Idkth3flakepass@123'
 snowflake_database = 'GITDB'
 snowflake_schema = 'GITSCHEMA'
 
