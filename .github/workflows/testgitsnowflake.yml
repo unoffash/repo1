@@ -16,15 +16,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Install SnowSQL
+      - name: Run Snowflake CLI in Docker Container
         run: |
-          curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.14-linux_x86_64.bash
-          chmod a+x snowsql-1.2.14-linux_x86_64.bash
-          bash snowsql-1.2.14-linux_x86_64.bash
-          export PATH=$HOME/snowsql:$PATH
-
-
-      - name: Run SQL Script on Snowflake
+          docker run -v $(pwd):/workdir snowsql:latest snowsql -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -p $SNOWFLAKE_PASSWORD -d $SNOWFLAKE_DATABASE -s $SNOWFLAKE_SCHEMA -f create_table.sql
         env:
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
@@ -32,6 +26,3 @@ jobs:
           SNOWFLAKE_DATABASE: 'GITDB'
           SNOWFLAKE_WAREHOUSE: 'COMPUTE_WH'
           SNOWFLAKE_SCHEMA: 'GITSCHEMA'
-        run: |
-          snowsql --version
-          snowsql -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -p $SNOWFLAKE_PASSWORD -d $SNOWFLAKE_DATABASE -s $SNOWFLAKE_SCHEMA -f create_table.sql
