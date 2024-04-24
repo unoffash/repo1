@@ -18,8 +18,10 @@ jobs:
 
       - name: Install SnowSQL
         run: |
-          curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.9-linux_x86_64.bash
-          chmod a+x SNOWSQL_DEST=~/bin SNOWSQL_LOGIN_SHELL=~/.profile bash snowsql-1.2.9-linux_x86_64.bash
+          curl -O https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowsql-1.2.14-linux_x86_64.bash
+          snowsql-1.2.14-linux_x86_64.bash
+          bash snowsql-1.2.14-linux_x86_64.bash
+          export PATH=$HOME/snowsql:$PATH
 
       - name: Run SQL Script on Snowflake
         env:
