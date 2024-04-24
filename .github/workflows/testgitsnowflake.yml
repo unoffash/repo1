@@ -30,6 +30,5 @@ jobs:
           SNOWFLAKE_WAREHOUSE: 'COMPUTE_WH'
           SNOWFLAKE_SCHEMA: 'GITSCHEMA'
         run: |
-          snowsql --version
           snowsql -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -p $SNOWFLAKE_PASSWORD -d $SNOWFLAKE_DATABASE -s $SNOWFLAKE_SCHEMA -f create_table.sql
 
