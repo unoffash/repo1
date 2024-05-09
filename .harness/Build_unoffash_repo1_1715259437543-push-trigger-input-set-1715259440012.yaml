@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_unoffash_repo1_1715259437543-push-trigger-input-set
+  identifier: Build_unoffash_repo1_1715259437543pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_unoffash_repo1_1715259437543
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
