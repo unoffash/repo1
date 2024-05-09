@@ -30,6 +30,6 @@ pipeline:
                   name: Run_1
                   identifier: Run_1
                   spec:
-                    shell: Python
+                    shell: Sh
                     command: python helloworld.py
                   description: run helloworld python script
