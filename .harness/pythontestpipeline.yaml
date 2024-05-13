@@ -34,7 +34,6 @@ pipeline:
                     shell: Sh
                     command: |-
                       pip install --upgrade pip
-                      pip install python
                       pip install snowpark
                       pip install pandas
               - step:
