@@ -1,0 +1,45 @@
+pipeline:
+  name: python-test-pipeline
+  identifier: pythontestpipeline
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: account.Github_OAuth_1715259429427
+        repoName: unoffash/repo1
+        build: <+input>
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1 - install python dependencies
+                  identifier: Run_1_install_python_dependencies
+                  spec:
+                    shell: Sh
+                    command: |-
+                      pip install python3
+                      pip install snowpark
+                      pip install pandas
+              - step:
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
+                  spec:
+                    shell: Sh
+                    command: python testsnowpark.py
