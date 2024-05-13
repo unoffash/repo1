@@ -32,10 +32,7 @@ pipeline:
                   identifier: Run_1_install_python_dependencies
                   spec:
                     shell: Sh
-                    command: |-
-                      pip install --upgrade pip
-                      pip install snowpark
-                      pip install pandas
+                    command: pip install --upgrade pip
               - step:
                   type: Run
                   name: Run_2
