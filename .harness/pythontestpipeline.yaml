@@ -33,7 +33,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
-                      pip install python3
+                      pip install python
                       pip install snowpark
                       pip install pandas
               - step:
