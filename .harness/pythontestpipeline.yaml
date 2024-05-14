@@ -70,3 +70,20 @@ pipeline:
                       DATABASE: HARNESSDB
                       SCHEMA: HARNESSSCHEMA
                       SQL_FILE: testtask.sql
+              - step:
+                  type: Run
+                  name: Run_4 - Execute task
+                  identifier: Run_4_Execute_task
+                  spec:
+                    shell: Sh
+                    command: |-
+                      #!/bin/bash
+
+                      snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
+                    envVariables:
+                      ACCOUNT: rxrkbxe-dw20573
+                      USERNAME: ASHP123
+                      SNOWSQL_PWD: Idkth3sfpass@123
+                      DATABASE: HARNESSDB
+                      SCHEMA: HARNESSSCHEMA
+                      SQL_FILE: execute_task.sql
