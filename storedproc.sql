@@ -4,7 +4,7 @@ create or replace procedure test_proc()
     as
     $$
     BEGIN
-    create table HARNESS2(TRANS_DESC VARCHAR, MERCHANT_NAME VARCHAR);
+    create or replace table HARNESS2(TRANS_DESC VARCHAR, MERCHANT_NAME VARCHAR);
     INSERT INTO HARNESS2 VALUES ('FLIP','FLIPKART');
     SELECT * FROM HARNESS2;
     END;
