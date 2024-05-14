@@ -1,5 +1,5 @@
 create or replace procedure test_proc()
-    return string
+    returns VARCHAR
     language SQL
     as
     $$
