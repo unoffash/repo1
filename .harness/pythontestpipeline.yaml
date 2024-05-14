@@ -28,13 +28,14 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Run_1 - install python dependencies
+                  name: Run_1 - install SnowSQL
                   identifier: Run_1_install_python_dependencies
                   spec:
                     shell: Sh
                     command: |-
-                      pip install --upgrade pip
-                      pip install snowpark
+                      wget https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowflake-snowsql-1.2.21-1.x86_64.rpm
+                      rpm -i snowflake-snowsql-1.2.21-1.x86_64.rpm
+                      snowsql -v
               - step:
                   type: Run
                   name: Run_2 - execute SQL script for stored procedure
