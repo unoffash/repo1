@@ -46,3 +46,10 @@ pipeline:
                       #!/bin/bash
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
+                    envVariables:
+                      ACCOUNT: rxrkbxe-dw20573
+                      USERNAME: ASHP123
+                      SNOWSQL_PWD: Idkth3sfpass@123
+                      DATABASE: HARNESSDB
+                      SCHEMA: HARNESSSCHEMA
+                      SQL_FILE: storedproc.sql
