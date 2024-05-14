@@ -1,4 +1,5 @@
 create or replace procedure test_proc()
+    return string
     language SQL
     as
     $$
