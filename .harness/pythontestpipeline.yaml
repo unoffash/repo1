@@ -53,3 +53,9 @@ pipeline:
                       DATABASE: HARNESSDB
                       SCHEMA: HARNESSSCHEMA
                       SQL_FILE: storedproc.sql
+              - step:
+                  type: Run
+                  name: Run_3 - Execute SQL to create task
+                  identifier: Run_3_Execute_SQL_to_create_task
+                  spec:
+                    shell: Sh
