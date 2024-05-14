@@ -130,8 +130,62 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Run_1 _ check snowsql version
+                  name: Run_1 _ install snowsql
                   identifier: Run_1___check_snowsql_version
                   spec:
                     shell: Sh
-                    command: snowsql -v
+                    command: |-
+                      wget https://sfc-repo.snowflakecomputing.com/snowsql/bootstrap/1.2/linux_x86_64/snowflake-snowsql-1.2.21-1.x86_64.rpm
+                      rpm -i snowflake-snowsql-1.2.21-1.x86_64.rpm
+                      snowsql -v
+              - step:
+                  type: Run
+                  name: Run_2_execute SQL Script for stored procedure
+                  identifier: Run_2_execute_SQL_Script_for_stored_procedure
+                  spec:
+                    shell: Sh
+                    command: |-
+                      #!/bin/bash
+
+                      snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
+                    envVariables:
+                      ACCOUNT: rxrkbxe-dw20573
+                      USERNAME: ASHP123
+                      DATABASE: PRODDB
+                      SCHEMA: PRODSCHEMA
+                      SNOWSQL_PWD: Idkth3sfpass@123
+                      SQL_FILE: storedproc.sql
+              - step:
+                  type: Run
+                  name: Run_3_execute SQL script for task creation
+                  identifier: Run_3_execute_SQL_script_for_task_creation
+                  spec:
+                    shell: Sh
+                    command: |-
+                      #!/bin/bash
+
+                      snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
+                    envVariables:
+                      ACCOUNT: rxrkbxe-dw20573
+                      USERNAME: ASHP123
+                      DATABASE: PRODDB
+                      SCHEMA: PRODSCHEMA
+                      SNOWSQL_PWD: Idkth3sfpass@123
+                      SQL_FILE: testtask.sql
+              - step:
+                  type: Run
+                  name: Run_4_ execute task
+                  identifier: Run_4__execute_task
+                  spec:
+                    shell: Sh
+                    command: |-
+                      #!/bin/bash
+
+                      snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
+                    envVariables:
+                      ACCOUNT: rxrkbxe-dw20573
+                      USERNAME: ASHP123
+                      SNOWSQL_PWD: Idkth3sfpass@123
+                      DATABASE: PRODDB
+                      SCHEMA: PRODSCHEMA
+                      SQL_FILE: execute_task.sql
