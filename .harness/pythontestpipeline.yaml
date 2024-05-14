@@ -113,3 +113,25 @@ pipeline:
                     isAutoRejectEnabled: false
                     approverInputs: []
         tags: {}
+    - stage:
+        name: stage2-prod
+        identifier: stage2prod
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1 _ check snowsql version
+                  identifier: Run_1___check_snowsql_version
+                  spec:
+                    shell: Sh
+                    command: snowsql -v
