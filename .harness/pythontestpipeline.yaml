@@ -37,8 +37,11 @@ pipeline:
                       pip install snowpark
               - step:
                   type: Run
-                  name: Run_2
+                  name: Run_2 - execute SQL script for stored procedure
                   identifier: Run_2
                   spec:
-                    shell: Sh
-                    command: python testsnowpark.py
+                    shell: Bash
+                    command: |-
+                      #!/bin/bash
+
+                      snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
