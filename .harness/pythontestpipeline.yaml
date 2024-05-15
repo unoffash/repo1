@@ -160,11 +160,6 @@ pipeline:
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
-                      ACCOUNT: rxrkbxe-dw20573
-                      USERNAME: ASHP123
-                      DATABASE: PRODDB
-                      SCHEMA: PRODSCHEMA
-                      SNOWSQL_PWD: Idkth3sfpass@123
                       SQL_FILE: storedproc.sql
               - step:
                   type: Run
@@ -177,11 +172,6 @@ pipeline:
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
-                      ACCOUNT: rxrkbxe-dw20573
-                      USERNAME: ASHP123
-                      DATABASE: PRODDB
-                      SCHEMA: PRODSCHEMA
-                      SNOWSQL_PWD: Idkth3sfpass@123
                       SQL_FILE: testtask.sql
               - step:
                   type: Run
@@ -194,9 +184,30 @@ pipeline:
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
-                      ACCOUNT: rxrkbxe-dw20573
-                      USERNAME: ASHP123
-                      SNOWSQL_PWD: Idkth3sfpass@123
-                      DATABASE: PRODDB
-                      SCHEMA: PRODSCHEMA
                       SQL_FILE: execute_task.sql
+        variables:
+          - name: ACCOUNT
+            type: String
+            description: ""
+            required: true
+            value: rxrkbxe-dw20573
+          - name: USERNAME
+            type: String
+            description: ""
+            required: true
+            value: ASHP123
+          - name: DATABASE
+            type: String
+            description: ""
+            required: true
+            value: PRODDB
+          - name: SCHEMA
+            type: String
+            description: ""
+            required: true
+            value: PRODSCHEMA
+          - name: SNOWSQL_PWD
+            type: String
+            description: ""
+            required: true
+            value: Idkth3sfpass@123
