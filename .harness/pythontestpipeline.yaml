@@ -87,6 +87,32 @@ pipeline:
                       DATABASE: HARNESSDB
                       SCHEMA: HARNESSSCHEMA
                       SQL_FILE: execute_task.sql
+        variables:
+          - name: ACCOUNT
+            type: String
+            description: ""
+            required: true
+            value: rxrkbxe-dw20573
+          - name: USERNAME
+            type: String
+            description: ""
+            required: true
+            value: ASHP123
+          - name: SNOWSQL_PWD
+            type: String
+            description: ""
+            required: true
+            value: Idkth3sfpass@123
+          - name: DATABASE
+            type: String
+            description: ""
+            required: true
+            value: HARNESSDB
+          - name: SCHEMA
+            type: String
+            description: ""
+            required: true
+            value: HARNESSSCHEMA
     - stage:
         name: Approval Stage
         identifier: Approval_Stage
