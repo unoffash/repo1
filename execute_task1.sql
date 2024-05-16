@@ -1,0 +1,1 @@
+ALTER TASK test_task RESUME;
