@@ -1,0 +1,5 @@
+CREATE OR REPLACE TASK test_task_1
+  WAREHOUSE = COMPUTE_WH
+  SCHEDULE = '10 MINUTE'
+  AS
+    CALL test_proc();
