@@ -72,6 +72,8 @@ pipeline:
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
                       SQL_FILE: execute_task.sql
+          environmentRef: SANDBOX
+          deploytoall: false
         variables:
           - name: ACCOUNT
             type: String
