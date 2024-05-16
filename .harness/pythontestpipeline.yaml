@@ -174,7 +174,7 @@ pipeline:
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
-                      SQL_FILE: testtask.sql
+                      SQL_FILE: testtask1.sql
               - step:
                   type: Run
                   name: Run_4_ execute task
@@ -186,7 +186,7 @@ pipeline:
 
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
-                      SQL_FILE: execute_task.sql
+                      SQL_FILE: execute_task1.sql
           environmentRef: prod
           deployToAll: false
         variables:
