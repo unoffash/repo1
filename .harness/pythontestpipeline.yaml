@@ -72,7 +72,7 @@ pipeline:
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
                       SQL_FILE: execute_task.sql
-          environmentRef: SANDBOX
+          environmentRef: Sandbox
           deploytoall: false
         variables:
           - name: ACCOUNT
@@ -187,7 +187,7 @@ pipeline:
                       snowsql -a $ACCOUNT -u "$USERNAME" -d "$DATABASE" -s "$SCHEMA" -f "$SQL_FILE"
                     envVariables:
                       SQL_FILE: execute_task.sql
-          environmentRef: PROD
+          environmentRef: prod
           deploytoall: false
         variables:
           - name: ACCOUNT
