@@ -73,7 +73,7 @@ pipeline:
                     envVariables:
                       SQL_FILE: execute_task.sql
           environmentRef: Sandbox
-          deploytoall: false
+          deployToAll: false
         variables:
           - name: ACCOUNT
             type: String
@@ -188,7 +188,7 @@ pipeline:
                     envVariables:
                       SQL_FILE: execute_task.sql
           environmentRef: prod
-          deploytoall: false
+          deployToAll: false
         variables:
           - name: ACCOUNT
             type: String
