@@ -1,8 +1,8 @@
-name: tfg code
+name: tfg code test unit
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [ faeture1 ]
 
 jobs:
   build:
