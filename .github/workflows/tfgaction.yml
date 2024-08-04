@@ -2,7 +2,7 @@ name: tfg feature 3 code
 
 on:
   push:
-    branches: [ feature2 ]
+    branches: [ feature3 ]
 
 jobs:
   build:
