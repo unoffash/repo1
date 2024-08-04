@@ -1,4 +1,4 @@
-name: tfg feature 2 code
+name: tfg feature 3 code
 
 on:
   push:
@@ -31,6 +31,9 @@ jobs:
       run: |
           coverage report
           coverage html
+    - name: Check coverage threshold
+      run: |
+          coverage report --fail-under=90
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
       with:
