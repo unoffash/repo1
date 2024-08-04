@@ -33,7 +33,7 @@ jobs:
           coverage html
     - name: Check coverage threshold
       run: |
-          coverage report --fail-under=90
+          coverage report --fail-under=95
     - name: Upload coverage report
       uses: actions/upload-artifact@v3
       with:
